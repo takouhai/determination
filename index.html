@@ -30,20 +30,21 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-7s5uDGW3AHqw6xtJmNNtr+OBRJUlgkNJEo78P4b0yRw= sha512-nNo+yCHEyn0smMxSswnf/OnX6/KwJuZTlNZBjauKhTK0c+zT+q5JOCx0UFhXQ6rJR9jg6Es8gPuD2uZcYDLqSw==" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.rawgit.com/vitch/jScrollPane/master/style/jquery.jscrollpane.css">
     <!-- Tumblr META Information -->
-    <meta name="select:Layout" content="snowdin" title="Snowdin">
-    <meta name="select:Layout" content="fallen-down" title="Fallen Down">
-    <meta name="select:Layout" content="castle" title="Castle Entrance">
-    <meta name="select:Layout" content="dog" title="dog">
-    <meta name="select:Layout" content="custom" title="Custom">
+    <meta name="select:Layout" content="snowdin" title="Snowdin" />
+    <meta name="select:Layout" content="fallen-down" title="Fallen Down" />
+    <meta name="select:Layout" content="castle" title="Castle Entrance" />
+    <meta name="select:Layout" content="dog" title="dog" />
+    <meta name="select:Layout" content="custom" title="Custom" />
+    <meta name="select:Layout" content="custom-tile" title="Custom - Tiled" />
     <meta name="image:Custom background" content="" />
-    <meta name="color:Links" content="#FF7E29">
-    <meta name="color:Menu border" content="#fff">
-    <meta name="color:Menu text" content="#fff">
-    <meta name="color:Menu background" content="#000">
-    <meta name="color:Post border" content="#fff">
-    <meta name="color:Post text" content="#fff">
-    <meta name="color:Post title" content="#fff">
-    <meta name="color:Post background" content="#000">
+    <meta name="color:Links" content="#FF7E29" />
+    <meta name="color:Menu border" content="#fff" />
+    <meta name="color:Menu text" content="#fff" />
+    <meta name="color:Menu background" content="#000" />
+    <meta name="color:Post border" content="#fff" />
+    <meta name="color:Post text" content="#fff" />
+    <meta name="color:Post title" content="#fff" />
+    <meta name="color:Post background" content="#000" />
     <meta name="color:Custom background color" content="#000" />
     <meta name="text:Username" content="Toriel" />
     <meta name="image:Character image" content="" />
@@ -53,6 +54,7 @@
     <meta name="text:HP" content="20" />
     <meta name="text:G" content="100" />
     <style>
+
     body.snowdin {
         background: url('http://i.imgur.com/4FWmAtz.png') repeat-x top left fixed;
         background-size: 480px 1080px;
@@ -71,8 +73,13 @@
     }
     
     body.custom {
-        background: {color: Custom background color}
-        url('{image:Custom background}') bottom left fixed no-repeat;
+        background: url('{image:Custom background}') top left fixed no-repeat;
+        background-color: {color:Custom background color};
+    }
+
+    body.custom-tile {
+        background: url('{image:Custom background}') top left fixed repeat;
+        background-color: {color:Custom background color};
     }
     
     a {
