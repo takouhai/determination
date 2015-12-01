@@ -456,11 +456,11 @@
             </p>
             {/block:Pages} {/block:HasPages} {block:AskEnabled}
             <p class="sidebar-list-inner">
-                <a href="{URL}" class=""><img src="http://i.imgur.com/TjQqx1n.png" alt="" class="sidebar-heart">{AskLabel}</a>
+                <a href="{BlogURL}ask" class=""><img src="http://i.imgur.com/TjQqx1n.png" alt="" class="sidebar-heart">{AskLabel}</a>
             </p>
             {/block:AskEnabled} {block:SubmissionsEnabled}
             <p class="sidebar-list-inner">
-                <a href="{URL}" class=""><img src="http://i.imgur.com/TjQqx1n.png" alt="" class="sidebar-heart">{SubmitLabel}</a>
+                <a href="{BlogURL}submit" class=""><img src="http://i.imgur.com/TjQqx1n.png" alt="" class="sidebar-heart">{SubmitLabel}</a>
             </p> {/block:SubmissionsEnabled}
         </div>
         <div id="stat-menu">
@@ -547,7 +547,7 @@
                     </tr>
                     <tr class="menu">
                         <td class="statsleft">HP</td>
-                        <td>{text:HP}</td>
+                        <td>{text:HP}/20</td>
                     </tr>
                     <tr class="menu">
                         <td class="statsleft">G</td>
