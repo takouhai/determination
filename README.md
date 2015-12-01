@@ -23,7 +23,7 @@ determination is a theme for Tumblr, based off of Undertale.
 
 By using this theme, you agree to the following:
 
- - You the credits where they are, or at least moving them somewhere visible.
+ - You leave the credits where they are, or at least moving them somewhere visible.
  - You can edit as much as you like, as long as you credit me
  - You stay determined! You are the future of humans and monsters!
 
