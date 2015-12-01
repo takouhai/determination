@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- 
+          _      _                      _             _   _              
+         | |    | |                    (_)           | | (_)             
+       __| | ___| |_ ___ _ __ _ __ ___  _ _ __   __ _| |_ _  ___  _ __   
+      / _` |/ _ \ __/ _ \ '__| '_ ` _ \| | '_ \ / _` | __| |/ _ \| '_ \  
+     | (_| |  __/ ||  __/ |  | | | | | | | | | | (_| | |_| | (_) | | | | 
+      \__,_|\___|\__\___|_|  |_| |_| |_|_|_| |_|\__,_|\__|_|\___/|_| |_| 
+    ======================================================================
+    || Theme by: Daniel Gallegos                                        ||
+    || Twitter: @that_taco_guy                                          ||
+    || Download: http://github.com/thattacoguy/determination            ||
+    || Preview: http://determination-theme.tumblr.com                   ||
+    || Name: determination                                              ||
+    || Version: v1.0                                                    ||
+    || License: MIT                                                     ||
+    || Year: 2015                                                       ||
+    ======================================================================
+    -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{Title}</title>
+    <link rel="shortcut icon" href="{Favicon}">
+    <link rel="alternate" type="application/rss+xml" href="{RSS}"> {block:Description}
+    <meta name="description" content="{MetaDescription}" /> {/block:Description}
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-7s5uDGW3AHqw6xtJmNNtr+OBRJUlgkNJEo78P4b0yRw= sha512-nNo+yCHEyn0smMxSswnf/OnX6/KwJuZTlNZBjauKhTK0c+zT+q5JOCx0UFhXQ6rJR9jg6Es8gPuD2uZcYDLqSw==" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/vitch/jScrollPane/master/style/jquery.jscrollpane.css">
+    <!-- Tumblr META Information -->
+    <meta name="select:Layout" content="snowdin" title="Snowdin">
+    <meta name="select:Layout" content="fallen-down" title="Fallen Down">
+    <meta name="select:Layout" content="castle" title="Castle Entrance">
+    <meta name="select:Layout" content="dog" title="dog">
+    <meta name="select:Layout" content="custom" title="Custom">
+    <meta name="image:Custom background" content="" />
+    <meta name="color:Links" content="#FF7E29">
+    <meta name="color:Menu border" content="#fff">
+    <meta name="color:Menu text" content="#fff">
+    <meta name="color:Menu background" content="#000">
+    <meta name="color:Post border" content="#fff">
+    <meta name="color:Post text" content="#fff">
+    <meta name="color:Post title" content="#fff">
+    <meta name="color:Post background" content="#000">
+    <meta name="color:Custom background color" content="#000" />
+    <meta name="text:Username" content="Toriel" />
+    <meta name="image:Character image" content="" />
+    <meta name="if:Show custom username" content="0" />
+    <meta name="if:Show custom stats" content="0" />
+    <meta name="text:LV" content="1" />
+    <meta name="text:HP" content="20" />
+    <meta name="text:G" content="100" />
+    <style>
+    body.snowdin {
+        background: url('http://i.imgur.com/4FWmAtz.png') repeat-x top left fixed;
+        background-size: 480px 1080px;
+    }
+    
+    body.fallen-down {
+        background: #000 url('http://i.imgur.com/gbAUzYA.jpg') top left fixed no-repeat;
+    }
+    
+    body.castle {
+        background: #000 url('http://i.imgur.com/WQ6scjB.png') top left fixed no-repeat;
+    }
+    
+    body.dog {
+        background: #000 url('http://i.imgur.com/OWBB06j.jpg') top left fixed no-repeat;
+    }
+    
+    body.custom {
+        background: {color: Custom background color}
+        url('{image:Custom background}') bottom left fixed no-repeat;
+    }
+    
+    a {
+        color: {color:Links};
+    }
+
+    a:visited {
+        color: {color:Links};
+    }
+    
+    a:hover {
+        color: {color:Links};
+        text-decoration: none;
+    }
+    
+    a:focus {
+        color: {color:Links};
+        text-decoration: none;
+    }
+    
+    canvas {
+        display: hidden;
+        position: fixed;
+    }
+    
+    canvas.snowdin {
+        display: visible;
+        position: fixed;
+    }
+    
+    body {
+        background: none;
+        font-family: '8bitoperator';
+    }
+    
+    @font-face {
+        font-family: '8bitoperator';
+        src: url("https://cdn.raweverything.dislocal.com/thattacoguy/sources/raw/e303e107f56ff38ab280afb62dd074a25bb848cc/fonts/8bitoperator.ttf") format('truetype');
+    }
+    
+    @font-face {
+        font-family: "Mars Needs Cunnilingus";
+        src: url("https://cdn.raweverything.dislocal.com/thattacoguy/sources/raw/e303e107f56ff38ab280afb62dd074a25bb848cc/fonts/Mars%20Needs%20Cunnilingus.ttf") format("truetype");
+    }
+    
+    .sidebar-title {
+        font-family: '8bitoperator', Consolas;
+        font-size: calc(18px*2)
+    }
+    
+    .sidebar-list {
+        font-family: '8bitoperator', Consolas;
+        font-size: calc(18px*2);
+        padding-top: 9px;
+        padding-bottom: 9px;
+        text-align: right;
+    }
+    
+    .sidebar-list > a {
+        color: {color:Menu text};
+    }
+    
+    .sidebar-list > a:hover {
+        color: {color:Menu text};
+        text-decoration: none;
+    }
+    
+    .sidebar-list > a:focus {
+        color: {color:Menu text};
+        text-decoration: none;
+    }
+    
+    .sidebar-heart {
+        display: none;
+        height: calc(18px*1.5);
+        margin-top: -8px;
+        margin-right: calc(10px*2);
+        text-align: left;
+    }
+    
+    a:hover > .sidebar-heart {
+        display: inline-block;
+    }
+    
+    .sidebar-menu {
+        font-family: 'Mars Needs Cunnilingus', Consolas;
+        font-size: calc(10px*2.5);
+        line-height: calc(18px*2);
+    }
+    
+    tr.menu {
+        padding-bottom: calc(8px*2);
+    }
+    
+    .container-fluid {
+        margin-top: 1em;
+    }
+    
+    #sidebar-top {
+        position: fixed;
+        height: calc(136px*2);
+        width: calc(8.125em*1.5);
+        bottom: calc(6.125em*1.5 + 3em);
+        left: 0px;
+        right: 0px;
+        margin-left: calc(2.063em*1.5);
+        margin-bottom: calc(6px*2);
+        background-color: {color:Menu background};
+        color: {color:Menu text};
+        border: 0.375em solid {color:Menu border};
+        padding-top: calc(22px*1.5);
+        padding-left: calc(0.500em);
+        padding-right: calc(28px*2.5);
+        line-height: calc(1.125em*1.5);
+        font-size: calc(1.125em*1.5);
+        font-smooth: never;
+        -webkit-font-smoothing: none;
+    }
+    
+    .statsleft {
+        width: calc(36px*2);
+    }
+    
+    #sidebar-bottom {
+        position: fixed;
+        height: calc(6.125em*1.5);
+        width: calc(8.125em*1.5);
+        bottom: 3em;
+        left: 0px;
+        right: 0px;
+        margin-left: calc(2.063em*1.5);
+        margin-bottom: 0px;
+        background-color: {color:Menu background};
+        color: {color:Menu text};
+        border: 0.375em solid {color:Menu border};
+        padding-top: calc(0.625em*1.5);
+        padding-left: calc(0.500em*1.5);
+        line-height: calc(1.125em*1.5);
+        font-size: calc(1.125em*1.5);
+        font-smooth: never;
+        -webkit-font-smoothing: none;
+    }
+    
+    #item-menu {
+        display: none;
+        position: fixed;
+        width: calc(334px*1.5);
+        height: calc(350px*1.5);
+        bottom: calc((18px*2.5) + 48px);
+        left: calc((8.125em*1.5) + (14px*2));
+        right: 0px;
+        margin-left: calc(2.063em*1.5);
+        margin-bottom: 0px;
+        background-color: {color:Menu background};
+        color: {color:Menu text};
+        border: 0.375em solid {color:Menu border};
+        padding-top: calc(22px*1.5);
+        padding-left: calc(38px *2);
+        padding-right: calc(28px*2.5);
+        line-height: calc(1.125em*1.5);
+        font-size: calc(1.125em*1.5);
+        z-index: 100;
+    }
+    
+    #stat-menu {
+        display: none;
+        position: fixed;
+        width: calc(334px*1.5);
+        height: calc(350px*1.5);
+        bottom: calc((18px*2.5) + 48px);
+        left: calc((8.125em*1.5) + (14px*2));
+        right: 0px;
+        margin-left: calc(2.063em*1.5);
+        margin-bottom: 0px;
+        background-color: {color:Menu background};
+        color: {color:Menu text};
+        border: 0.375em solid {color:Menu border};
+        padding-top: calc(22px*1.5);
+        padding-left: calc(38px *2);
+        padding-right: calc(28px*2.5);
+        line-height: calc(1.125em*1.5);
+        font-size: calc(1.125em*1.5);
+        z-index: 100;
+    }
+    
+    #cell-menu {
+        display: none;
+        position: fixed;
+        width: calc(334px*1.5);
+        height: calc(350px*1.5);
+        bottom: calc((18px*2.5) + 48px);
+        left: calc((8.125em*1.5) + (14px*2));
+        right: 0px;
+        margin-left: calc(2.063em*1.5);
+        margin-bottom: 0px;
+        background-color: {color:Menu background};
+        color: {color:Menu text};
+        border: 0.375em solid {color:Menu border};
+        padding-top: calc(22px*1.5);
+        padding-left: calc(38px *2);
+        padding-right: calc(28px*2.5);
+        line-height: calc(1.125em*1.5);
+        font-size: calc(1.125em*1.5);
+        z-index: 100;
+    }
+    
+    .sidebar-list-inner {
+        font-family: '8bitoperator', Consolas;
+        font-size: calc(18px*2);
+        padding-top: 9px;
+        padding-bottom: 9px;
+        text-align: left;
+    }
+    
+    .sidebar-list-inner > a {
+        color: {color:Menu text};
+    }
+    
+    .sidebar-list-inner > a:hover {
+        color: {color:Menu text};
+        text-decoration: none;
+    }
+    
+    .sidebar-list-inner > a:focus {
+        color: {color:Menu text};
+        text-decoration: none;
+    }
+    
+    .sidebar-list-inner > a:hover > .sidebar-heart {
+        display: inline;
+        margin-left: calc(-47px);
+    }
+    
+    .content {
+        z-index: 10;
+        margin-top: calc(10px*2);
+    }
+    
+    .post-block {
+        width: 600px;
+        min-height: 140px;
+        font-size: calc(1.125em *1.5);
+    }
+    
+    .post-block-caption {
+        font-family: '8bitoperator', Consolas;
+        background-color: {color:Post background};
+        color: {color:Post text};
+        border: 0.375em solid {color:Post border};
+        padding-left: calc(22px*2);
+        padding-top: calc(22px*1.5);
+        padding-right: calc(28px*2.5);
+        padding-bottom: calc(22px*1.5);
+        margin-bottom: calc(6px*2);
+        font-size: 12px !important;
+    }
+    
+    .post-title > a {
+        color: {color:Post title};
+    }
+    
+    .post-title > a:hover {
+        text-decoration: none;
+    }
+    
+    .post-title > a:focus {
+        text-decoration: none;
+    }
+    
+    .post-photo {
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 2px;
+        border: 0.186em solid {color:Post border};
+    }
+
+    .photoset {
+        border: 0.186em solid {color:Post border} !important;
+        background: {color:Post border} !important;
+    }
+
+    .html_photoset {
+        margin-left: 50px;
+        margin-right: 50px;
+    }
+
+    .tumblr_video_container {
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 8px;
+    }
+
+    .tumblr_video_iframe {
+        border: 0.186em solid {color:Post border} !important;
+    }
+    
+    img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+    
+    .description-title {
+        font-size: 15px;
+        line-height: 20px;
+    }
+    
+    .description-description {
+        font-size: 15px;
+        line-height: 20px;
+        overflow: hidden;
+        max-height: 100px;
+    }
+
+    .post-notes {
+        font-family: 'Mars Needs Cunnilingus' !important;
+    }
+
+    .notes {
+        margin-top: 30px;
+        font-family: 'Mars Needs Cunnilingus' !important;
+    }
+
+    .avatar {
+        display: none;
+    }
+
+    .post-info {
+        font-family: 'Mars Needs Cunnilingus';
+    }
+
+    .pager {
+        width: 600px;
+        font-family: 'Mars Needs Cunnilingus';
+    }
+
+    .pager li>a, .pager li>span {
+    display: inline-block;
+    padding: 5px 14px;
+    background-color: {color:Post background};
+    border: 0.375em solid {color:Post border};
+    border-radius: 0px;
+    }
+
+    .photo-high-res {
+        font-family: 'Mars Needs Cunnilingus';
+        font-size: 15px;
+        margin-bottom: 8px;
+    }
+
+    {CustomCSS}
+
+    </style>
+</head>
+
+<body class="{select:Layout}" id="scroller">
+    <canvas id="canvas" class="{select:Layout}"></canvas>
+    <div class="container">
+        <div id="sidebar-top">
+            <p class="sidebar-list" id="item">
+                <a href="javascript:void(0)" class=""><img src="http://i.imgur.com/TjQqx1n.png" alt="" class="sidebar-heart">ITEM</a>
+            </p>
+            <p class="sidebar-list" id="stat">
+                <a href="javascript:void(0)" class=""><img src="http://i.imgur.com/TjQqx1n.png" alt="" class="sidebar-heart">STAT</a>
+            </p>
+            <p class="sidebar-list" id="cell">
+                <a href="javascript:void(0)" class=""><img src="http://i.imgur.com/TjQqx1n.png" alt="" class="sidebar-heart">CELL</a>
+            </p>
+        </div>
+        <div id="item-menu">
+            {block:HasPages} {block:Pages}
+            <p class="sidebar-list-inner">
+                <a href="{URL}" class=""><img src="http://i.imgur.com/TjQqx1n.png" alt="" class="sidebar-heart">{Label}</a>
+            </p>
+            {/block:Pages} {/block:HasPages} {block:AskEnabled}
+            <p class="sidebar-list-inner">
+                <a href="{URL}" class=""><img src="http://i.imgur.com/TjQqx1n.png" alt="" class="sidebar-heart">{AskLabel}</a>
+            </p>
+            {/block:AskEnabled} {block:SubmissionsEnabled}
+            <p class="sidebar-list-inner">
+                <a href="{URL}" class=""><img src="http://i.imgur.com/TjQqx1n.png" alt="" class="sidebar-heart">{SubmitLabel}</a>
+            </p> {/block:SubmissionsEnabled}
+        </div>
+        <div id="stat-menu">
+            <p class="text-center">
+                <img src="{image:Character image}" style="margin-left:auto;margin-right:auto;max-height:250px">
+            </p>
+            <p>
+                "{text:Username}"
+            </p>
+            <div class="description-title">
+                <p>
+                    * {Title}
+                </p>
+                <p class="description-description">
+                    * {Description}
+                </p>
+            </div>
+        </div>
+        <div id="cell-menu">
+            <!-- Please do not remove these copyrights or credits. -->
+            <!-- If you do... -->
+            <!-- 
+            MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+            MMMMMMMMMMMMMMMMM7777777777777777777MMMMMMMMMMMMMMMM
+            MMMMMMMMMMMM8IIII..                .7III7MMMMMMMMMMM
+            MMMMMMMMM7?+~ .. ..                .... .??+MMMMMMMM
+            MMMMMMMM=,........                 ......   =NMMMMMM
+            MMMMMMZO..                                ...7$MMMMM
+            MMMMM$....                                 ... $8MMM
+            MMMMM  ...                                  ... 7MMM
+            MMM??..                                        .~?MM
+            MMM ...                                         . MM
+            MMM . . ...+========. .         .========+ .. . . MM
+            MMM ....?++MMMMMMMMMI?.        ++MMMMMMMMM+??, .. MM
+            MMM . IIMMMMMMMMMMMMMM         NMMMMMMMMMMMMM77 . MM
+            MMM . MMMMM???MMMMMMMM         MMM$I?ZMMMMMMMMM . MM
+            MMM . MMMMM . MMMMMMMM         MMM=..?MMMMMMMMM . MM
+            MMM~=.MMMMM==~MMMMMMMM. .===   MMMI=~$MMMMMMMMM :~MM
+            MMMMM.ZZZZZZZZZZZZ$MZO.. MMM ..Z$MOZZ$ZZZZZZZZZ.$MMM
+            MMMMM?....    .. I?7,..=?MMM?I.. $II ..    ... I8MMM
+            MMMMMM....... $77I7. ..$MMMMMM.. .+I777 ...... MMMMM
+            MMMMM+.... Z?.??+......$MMMMMM.. ...???.,Z.... +OMMM
+            MMMMM .....MNO ........:======........ .:MZO... $MMM
+            MMMMM. .++=MDZ=++.                 ..,++?MMM=, .7MMM
+            MMMMM   $$$M$ MM$????????????????????7$MMM7$$,..$MMM
+            MMMMMI. .  7I7MD 777NMI7IMNI777MM77IM$ MN7.... 78MMM
+            MMMMMM, ....~?MN$ ..DM . MO.   MM...MD$?+ ...  MMMMM
+            MMMMMMOO... . +=+OZZNM ..MO    MM 7ZMO+ .....$ZMMMMM
+            MMMMMMMM=,.......OOOMM===MD====MM=$OO?.... .=DMMMMMM
+            MMMMMMMMM7?+~ .. ...7$$$$Z$$$$$$Z$~. ....??+MMMMMMMM
+            MMMMMMMMMMMM8IIII. .......     .....7III7MMMMMMMMMMM
+            MMMMMMMMMMMMMMMMM777$77$777777777777MMMMMMMMMMMMMMMM
+            MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+            -->
+            <!-- you're gonna have a bad time. -->
+
+
+            <!-- seriously don't though <3 -->
+
+            <p class="sidebar-list-inner">
+                <a href="#" class=""><img src="http://i.imgur.com/TjQqx1n.png" alt="" class="sidebar-heart"><small>Undertale &copy; Toby Fox</small></a>
+            </p>
+            <p class="sidebar-list-inner">
+                <a href="#" class=""><img src="http://i.imgur.com/TjQqx1n.png" alt="" class="sidebar-heart"><small>Theme made by that_taco_guy</small></a>
+            </p>
+            <p class="sidebar-list-inner">
+                <a href="https://determination-theme.tumblr.com" class=""><img src="http://i.imgur.com/TjQqx1n.png" alt="" class="sidebar-heart">[THEME]</a>
+            </p>
+            <p class="sidebar-list-inner">
+                <a href="https://github.com/thattacoguy/determination" class=""><img src="http://i.imgur.com/TjQqx1n.png" alt="" class="sidebar-heart">[SOURCE]</a>
+            </p>
+        </div>
+        <div id="sidebar-bottom">
+            <div class="title">
+                {block:IfShowCustomUsername}
+                <p class="sidebar-title"><a href="{BlogURL}" style="color:{color:Menu text}">{text:Username}</a></p>
+                {/block:IfShowCustomUsername} {block:IfNotShowCustomUsername}
+                <p class="sidebar-title"><a href="{BlogURL}" style="color:{color:Menu text}">Player</a></p>
+                {/block:IfNotShowCustomUsername} {block:IfShowCustomStats}
+                <table class="sidebar-menu">
+                    <tr class="menu">
+                        <td class="statsleft">LV</td>
+                        <td>{text:LV}</td>
+                    </tr>
+                    <tr class="menu">
+                        <td class="statsleft">HP</td>
+                        <td>{text:HP}/20</td>
+                    </tr>
+                    <tr class="menu">
+                        <td class="statsleft">G</td>
+                        <td>{text:G}</td>
+                    </tr>
+                </table>
+                {/block:IfShowCustomStats} {block:IfNotShowCustomStats}
+                <table class="sidebar-menu">
+                    <tr class="menu">
+                        <td class="statsleft">LV</td>
+                        <td>1</td>
+                    </tr>
+                    <tr class="menu">
+                        <td class="statsleft">HP</td>
+                        <td>20/20</td>
+                    </tr>
+                    <tr class="menu">
+                        <td class="statsleft">G</td>
+                        <td>146</td>
+                    </tr>
+                </table>
+                {/block:IfNotShowCustomStats}
+                <!-- //Custom tumblr text -->
+            </div>
+        </div>
+        <!-- CONTENT -->
+        <div class="col-md-offset-4 col-md-8 col-sm-offset-4 col-sm-8">
+            <div class="content">
+                {block:Posts} {block:Text}
+                <!--TEXT-->
+                <div class="post-block post-block-caption"> {block:Title}
+                    <h3 class="post-title"><a href="{Permalink}">{Title}</a></h3> {/block:Title}
+                    <p>{Body}</p>
+                    <!-- TAGS -->
+                    {block:HasTags}
+                    <p>{block:Tags}<a href="{TagURL}" style="color:{color:Links}">*{Tag}</a> {/block:Tags}</p>
+                    {/block:HasTags}
+                    <!-- DATES + NOTES -->
+                    <p class="post-info"> <span class="pull-left"><a href="{Permalink}">{NoteCountWithLabel}</a></span> {block:Date}<span class="pull-right"><a href="{Permalink}">{TimeAgo}</a></span>{/block:Date}</p>
+                    {block:PostNotes}
+                    <p class="post-notes">{PostNotes}</p>
+                    {/block:PostNotes}
+                </div>
+                {/block:Text} {block:Photo}
+                <!--PHOTO-->
+                <div class="post-block">
+                    <div class="text-center">{LinkOpenTag}
+                        <img src="{PhotoURL-500}" alt="{PhotoAlt}" class="post-photo" />{LinkCloseTag}{block:HighRes}
+                        <a href="{PhotoURL-HighRes}" class="photo-high-res">View in High-Res</a>{/block:HighRes}</div> {block:Caption}
+                    <div class="post-block-caption">{Caption}
+                        <!-- TAGS -->
+                        {block:HasTags}
+                        <p>{block:Tags}<a href="{TagURL}" style="color:{color:Links}">*{Tag}</a> {/block:Tags}</p>
+                        {/block:HasTags}
+                        <!-- DATES + NOTES -->
+                        <p class="post-info"> <span class="pull-left"><a href="{Permalink}">{NoteCountWithLabel}</a></span> {block:Date}<span class="pull-right"><a href="{Permalink}">{TimeAgo}</a></span>{/block:Date}</p>
+                        {block:PostNotes}
+                        <p class="post-notes">{PostNotes}</p>
+                        {/block:PostNotes}
+                    </div>
+                    {/block:Caption}
+                </div>
+                {/block:Photo} {block:Panorama}
+                <!--PANORAMA-->
+                <div class="post-block post-panorama">
+                    {LinkOpenTag}
+                    <img src="{PhotoURL-Panorama}" alt="{PhotoAlt}" /> {LinkCloseTag}{block:Caption}
+                    <div class="post-block-caption">{Caption}
+                        <!-- TAGS -->
+                        {block:HasTags}
+                        <p>{block:Tags}<a href="{TagURL}" style="color:{color:Links}">*{Tag}</a> {/block:Tags}</p>
+                        {/block:HasTags}
+                        <!-- DATES + NOTES -->
+                        <p class="post-info"> <span class="pull-left"><a href="{Permalink}">{NoteCountWithLabel}</a></span> {block:Date}<span class="pull-right"><a href="{Permalink}">{TimeAgo}</a></span>{/block:Date}</p>
+                        {block:PostNotes}
+                        <p class="post-notes">{PostNotes}</p>
+                        {/block:PostNotes}
+                    </div>
+                    {/block:Caption}
+                </div>
+                {/block:Panorama} {block:Photoset}
+                <!-- PHOTOSET -->
+                <div class="post-block post-photoset">
+                    {Photoset-500} {block:Caption}
+                    <div class="post-block-caption">{Caption}
+                        <!-- TAGS -->
+                        {block:HasTags}
+                        <p>{block:Tags}<a href="{TagURL}" style="color:{color:Links}">*{Tag}</a> {/block:Tags}</p>
+                        {/block:HasTags}
+                        <!-- DATES + NOTES -->
+                        <p class="post-info"> <span class="pull-left"><a href="{Permalink}">{NoteCountWithLabel}</a></span> {block:Date}<span class="pull-right"><a href="{Permalink}">{TimeAgo}</a></span>{/block:Date}</p>
+                        {block:PostNotes}
+                        <p class="post-notes">{PostNotes}</p>
+                        {/block:PostNotes}
+                    </div>
+                    {/block:Caption}
+                </div>
+                {/block:Photoset} {block:Quote}
+                <!--QUOTE-->
+                <div class="post-block post-block-caption">
+                    "{Quote}"
+                    <!-- SOURCE -->
+                    {block:Source}
+                    <div class="post-source">{Source}</div>
+                    {/block:Source}
+                    <!-- TAGS -->
+                    {block:HasTags}
+                    <p>{block:Tags}<a href="{TagURL}" style="color:{color:Links}">*{Tag}</a> {/block:Tags}</p>
+                    {/block:HasTags}
+                    <!-- DATES + NOTES -->
+                    <p class="post-info"> <span class="pull-left"><a href="{Permalink}">{NoteCountWithLabel}</a></span> {block:Date}<span class="pull-right"><a href="{Permalink}">{TimeAgo}</a></span>{/block:Date}</p>
+                    {block:PostNotes}
+                    <p class="post-notes">{PostNotes}</p>
+                    {/block:PostNotes}
+                </div>
+                {/block:Quote} {block:Link}
+                <!-- LINK -->
+                <div class="post-block post-block-caption">
+                    <h3 class="post-title"><a href="{URL}" class="link" {Target}>{Name}</a></h3> {block:Description} {Description} {/block:Description}
+                    <!-- TAGS -->
+                    {block:HasTags}
+                    <p>{block:Tags}<a href="{TagURL}" style="color:{color:Links}">*{Tag}</a> {/block:Tags}</p>
+                    {/block:HasTags}
+                    <!-- DATES + NOTES -->
+                    <p class="post-info"> <span class="pull-left"><a href="{Permalink}">{NoteCountWithLabel}</a></span> {block:Date}<span class="pull-right"><a href="{Permalink}">{TimeAgo}</a></span>{/block:Date}</p>
+                    {block:PostNotes}
+                    <p class="post-notes">{PostNotes}</p>
+                    {/block:PostNotes}
+                </div>
+                {/block:Link} {block:Chat}
+                <!-- CHAT -->
+                <div class="post-block post-block-caption">
+                    {block:Title}
+                    <h3 class="post-title"><a href="{Permalink}">{Title}</a></h3> {/block:Title}
+                    <ul class="chat">
+                        {block:Lines}
+                        <li class="{Alt} user_{UserNumber}">
+                            {block:Label}
+                            <span class="label">{Label}</span> {/block:Label}{Line}
+                        </li>
+                        {/block:Lines}
+                    </ul>
+                    <!-- TAGS -->
+                    {block:HasTags}
+                    <p>{block:Tags}<a href="{TagURL}" style="color:{color:Links}">*{Tag}</a> {/block:Tags}</p>
+                    {/block:HasTags}
+                    <!-- DATES + NOTES -->
+                    <p class="post-info"> <span class="pull-left"><a href="{Permalink}">{NoteCountWithLabel}</a></span> {block:Date}<span class="pull-right"><a href="{Permalink}">{TimeAgo}</a></span>{/block:Date}</p>
+                    {block:PostNotes}
+                    <p class="post-notes">{PostNotes}</p>
+                    {/block:PostNotes}
+                </div>
+                {/block:Chat}{block:Video}
+                <div class="post-block post-video">
+                    {Video-500} {block:Caption}
+                    <div class="post-block-caption">{Caption}
+                        <!-- TAGS -->
+                        {block:HasTags}
+                        <p>{block:Tags}<a href="{TagURL}" style="color:{color:Links}">*{Tag}</a> {/block:Tags}</p>
+                        {/block:HasTags}
+                        <!-- DATES + NOTES -->
+                        <p class="post-info"> <span class="pull-left"><a href="{Permalink}">{NoteCountWithLabel}</a></span> {block:Date}<span class="pull-right"><a href="{Permalink}">{TimeAgo}</a></span>{/block:Date}</p>
+                        {block:PostNotes}
+                        <p class="post-notes">{PostNotes}</p>
+                        {/block:PostNotes}</div>
+                    {/block:Caption}
+                </div>
+                {/block:Video}{block:Audio}
+                <div class="post-block post-video">
+                    {AudioEmbed}{block:Caption}
+                    <div class="post-block-caption">{Caption}
+                        <!-- TAGS -->
+                        {block:HasTags}
+                        <p>{block:Tags}<a href="{TagURL}" style="color:{color:Links}">*{Tag}</a> {/block:Tags}</p>
+                        {/block:HasTags}
+                        <!-- DATES + NOTES -->
+                        <p class="post-info"> <span class="pull-left"><a href="{Permalink}">{NoteCountWithLabel}</a></span> {block:Date}<span class="pull-right"><a href="{Permalink}">{TimeAgo}</a></span>{/block:Date}</p>
+                        {block:PostNotes}
+                        <p class="post-notes">{PostNotes}</p>
+                        {/block:PostNotes}</div>
+                    {/block:Caption}
+                </div>
+                {/block:Audio}{/block:Posts} {block:Pagination}
+                <nav>
+                    <ul class="pager">
+                        {block:PreviousPage}
+                        <li class="previous"><a href="{PreviousPage}"><span aria-hidden="true">&larr;</span> Older</a></li>
+                        {/block:PreviousPage} {block:NextPage}
+                        <li class="next"><a href="{NextPage}">Newer <span aria-hidden="true">&rarr;</span></a></li>
+                        {/block:NextPage}
+                    </ul>
+                </nav>
+                {/block:Pagination}
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha256-KXn5puMvxCw+dAYznun+drMdG1IFl3agK0p/pqT9KAo= sha512-2e8qq0ETcfWRI4HJBzQiA3UoyFk6tbNyG+qSaIBZLyW9Xf3sWZHN/lxe9fTh1U45DpPf07yj94KsUHHWe4Yk1A==" crossorigin="anonymous"></script>
+    <script src="https://cdn.rawgit.com/jquery/jquery-mousewheel/master/jquery.mousewheel.min.js"></script>
+    <script src="https://cdn.rawgit.com/vitch/jScrollPane/master/script/jquery.jscrollpane.min.js"></script>
+    <script type="text/javascript">
+    console.log("This is a theme by Daniel Gallegos.");
+    $(function() {
+        var tempScrollTop = $(window).scrollTop();
+        var menuVisible = false;
+        $('#item').click(function() {
+            if (menuVisible) {
+                $('#item-menu').css({
+                    'display': 'none'
+                });
+                menuVisible = false;
+                return;
+            }
+            $('#item-menu').css({
+                'display': 'block'
+            });
+            menuVisible = true;
+        });
+        $('#item-menu').click(function() {
+            $(this).css({
+                'display': 'none'
+            });
+            menuVisible = false;
+        });
+
+        $('#stat').click(function() {
+            if (menuVisible) {
+                $('#stat-menu').css({
+                    'display': 'none'
+                });
+                menuVisible = false;
+                return;
+            }
+            $('#stat-menu').css({
+                'display': 'block'
+            });
+            menuVisible = true;
+        });
+        $('#stat-menu').click(function() {
+            $(this).css({
+                'display': 'none'
+            });
+            menuVisible = false;
+        });
+
+        $('#cell').click(function() {
+            if (menuVisible) {
+                $('#cell-menu').css({
+                    'display': 'none'
+                });
+                menuVisible = false;
+                return;
+            }
+            $('#cell-menu').css({
+                'display': 'block'
+            });
+            menuVisible = true;
+        });
+        $('#cell-menu').click(function() {
+            $(this).css({
+                'display': 'none'
+            });
+            menuVisible = false;
+        });
+        $(document).mouseup(function(e) {
+            var itemMenu = $("#item-menu");
+
+            if (!itemMenu.is(e.target) && itemMenu.has(e.target).length === 0) {
+                itemMenu.hide();
+                menuVisible = false;
+            }
+            var statMenu = $("#stat-menu");
+
+            if (!statMenu.is(e.target) && statMenu.has(e.target).length === 0) {
+                statMenu.hide();
+                menuVisible = false;
+            }
+            var cellMenu = $("#cell-menu");
+
+            if (!cellMenu.is(e.target) && cellMenu.has(e.target).length === 0) {
+                cellMenu.hide();
+                menuVisible = false;
+            }
+        });
+        $(window).scrollTop(tempScrollTop);
+    });
+    </script>
+    <script>
+    // Snow JS ripped from http://thecodeplayer.com/walkthrough/html5-canvas-snow-effect -- give them some love
+    window.onload = function() {
+        //canvas init
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+
+        //canvas dimensions
+        var W = window.innerWidth;
+        var H = window.innerHeight;
+        canvas.width = W;
+        canvas.height = H;
+
+        //snowflake particles
+        var mp = 25; //max particles
+        var particles = [];
+        for (var i = 0; i < mp; i++) {
+            particles.push({
+                x: Math.random() * W, //x-coordinate
+                y: Math.random() * H, //y-coordinate
+                r: Math.random() * 4 + 1, //radius
+                d: Math.random() * mp //density
+            })
+        }
+
+        //Lets draw the flakes
+        function draw() {
+            ctx.clearRect(0, 0, W, H);
+
+            ctx.fillStyle = "rgba(255, 255, 255, 0.8)";
+            ctx.beginPath();
+            for (var i = 0; i < mp; i++) {
+                var p = particles[i];
+                ctx.moveTo(p.x, p.y);
+                ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2, true);
+            }
+            ctx.fill();
+            update();
+        }
+
+        //Function to move the snowflakes
+        //angle will be an ongoing incremental flag. Sin and Cos functions will be applied to it to create vertical and horizontal movements of the flakes
+        var angle = 0;
+
+        function update() {
+            angle += 0.01;
+            for (var i = 0; i < mp; i++) {
+                var p = particles[i];
+                //Updating X and Y coordinates
+                //We will add 1 to the cos function to prevent negative values which will lead flakes to move upwards
+                //Every particle has its own density which can be used to make the downward movement different for each flake
+                //Lets make it more random by adding in the radius
+                p.y += Math.cos(angle + p.d) + 1 + p.r / 2;
+                p.x += Math.sin(angle) * 2;
+
+                //Sending flakes back from the top when it exits
+                //Lets make it a bit more organic and let flakes enter from the left and right also.
+                if (p.x > W + 5 || p.x < -5 || p.y > H) {
+                    if (i % 3 > 0) //66.67% of the flakes
+                    {
+                        particles[i] = {
+                            x: Math.random() * W,
+                            y: -10,
+                            r: p.r,
+                            d: p.d
+                        };
+                    } else {
+                        //If the flake is exitting from the right
+                        if (Math.sin(angle) > 0) {
+                            //Enter from the left
+                            particles[i] = {
+                                x: -5,
+                                y: Math.random() * H,
+                                r: p.r,
+                                d: p.d
+                            };
+                        } else {
+                            //Enter from the right
+                            particles[i] = {
+                                x: W + 5,
+                                y: Math.random() * H,
+                                r: p.r,
+                                d: p.d
+                            };
+                        }
+                    }
+                }
+            }
+        }
+
+        //animation loop
+        setInterval(draw, 33);
+    }
+    </script>
+</body>
+
+</html>
